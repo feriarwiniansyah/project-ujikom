@@ -13,19 +13,19 @@ class Task extends Model
         'is_completed',
         'priority',
         'list_id'
-    ]; //proteksi yang bisa diisi dan agar tidak ketersesat pada saat menginput data
+    ];
 
     protected $guarded = [
         'id',
         'created_at',
         'updated_at'
-    ]; //proteksi unutk field yang ada diatas
+    ];
 
     const PRIORITIES = [
         'low',
         'medium',
         'high'
-    ]; //const adalah nilai yang tidak bisa dirubah serta untuk mendapatkan prioritas yang akan setiap prioritas yang dibutuhkan
+    ];
 
     public function getPriorityClassAttribute() {
         return match($this->attributes['priority']) {
@@ -34,7 +34,7 @@ class Task extends Model
             'high' => 'danger',
             default => 'secondary'
         };
-    } //ini untuk memunculkan warna disetiap field priority
+    }
 
     public function list() {
         return $this->belongsTo(TaskList::class, 'list_id');

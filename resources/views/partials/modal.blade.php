@@ -1,6 +1,6 @@
 <div class="modal fade" id="addListModal" tabindex="-1" aria-labelledby="addListModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="{{ route('lists.store') }}" method="POST" class="modal-content"> {{-- digunakan unutk mengarahkan ke validasi store di taskcontroller--}}
+        <form action="{{ route('lists.store') }}" method="POST" class="modal-content">
             @method('POST')
             @csrf
             <div class="modal-header">
@@ -44,5 +44,5 @@
                 <button type="submit" class="btn btn-primary">Tambah</button>
             </div>
         </form>
-    </div>
+    </div>
 </div>

@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task; //digunakan untuk mengambil data dari folder yang tertera
-use App\Models\TaskList; //digunakan untuk mengambil data dari folder yang tertera
+use App\Models\Task;
+use App\Models\TaskList;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function index() /* digunakan unutk view */ {
-        /* digunakan untuk mengambil task dan tasklist dari model*/
+    public function index() {
         $data = [
-            'title' => 'Home', 
+            'title' => 'Home',
             'lists' => TaskList::all(),
-            'tasks' => Task::orderBy('created_at', 'desc')->get(), //digunakan untuk mengurutkan dari terbesar ke terkecil
-            'priorities' => Task::PRIORITIES //untuk mnegambil nilai priorities dari const yang ada di app\models\task
+            'tasks' => Task::orderBy('created_at', 'desc')->get(),
+            'priorities' => Task::PRIORITIES
         ];
 
         return view('pages.home', $data);
@@ -24,7 +23,7 @@ class TaskController extends Controller
         $request->validate([
             'name' => 'required|max:100',
             'list_id' => 'required'
-        ]); //digunakan untuk request validasi feild name|max:100 diartikan maximal huruf yang harus diinput dan list_id reuired berarti harus diisi
+        ]);
 
         Task::create([
             'name' => $request->name,

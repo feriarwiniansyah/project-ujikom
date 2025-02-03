@@ -10,7 +10,7 @@ class TaskListController extends Controller
     public function store(Request $request) {
         $request->validate([
             'name' => 'required|max:100'
-        ]); //digunakan untuk request validasi feild name|max:100 diartikan maximal huruf yang harus diinput
+        ]);
 
         TaskList::create([
             'name' => $request->name

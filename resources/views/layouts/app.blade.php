@@ -14,20 +14,11 @@
 </head>
 
 <body>
-    <div>
-         @include('partials.navbar') <!-- Mengambil component navbar -->
-    </div>
-    <div>
-        @yield('content') <!-- Render content -->
-    </div>
-    <div>
-        @include('partials.modal')
-    </div>
-    {{-- @include('partials.navbar') <!-- Mengambil component navbar --> --}}
+    @include('partials.navbar') <!-- Mengambil component navbar -->
 
-    {{-- @yield('content') <!-- Render content --> --}}
+    @yield('content') <!-- Render content -->
 
-    {{-- @include('partials.modal') --}}
+    @include('partials.modal')
 
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script> <!-- Import bootstrap JS -->
